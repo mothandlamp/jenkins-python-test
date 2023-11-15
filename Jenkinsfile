@@ -1,8 +1,8 @@
 pipeline {
     agent {
         docker {
-            image 'python:latest'
-            args '-u root'
+            image "python:latest"
+            args "-u root"
         }
     }
 
@@ -27,8 +27,8 @@ pipeline {
     }
     post {
         always {
-            archiveArtifacts artifacts: 'htmlcov/**', fingerprint: true
-            junit 'coverage.xml'
+            archiveArtifacts artifacts: "htmlcov/**", fingerprint: true
+            cobertura coberturaReportFile: "coverage.xml"
         }
     }
 }
