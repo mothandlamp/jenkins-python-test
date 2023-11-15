@@ -25,4 +25,10 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            archiveArtifacts artifacts: 'htmlcov/**', fingerprint: true
+            junit 'coverage.xml'
+        }
+    }
 }
