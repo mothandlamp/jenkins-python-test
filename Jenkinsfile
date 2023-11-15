@@ -12,7 +12,7 @@ pipeline {
                 sh "pip3 install -r requirements.txt"
             }
         }
-        stage("test") {
+        stage("tests") {
             steps {
                 sh "nose2 -v"
             }
